@@ -7,6 +7,8 @@ import reduxThunk from 'redux-thunk';
 import { Constants } from 'expo';
 import DecksListView from './components/DecksListView';
 import reducer from './reducers';
+import NewDeckView from './components/NewDeckView';
+import DeckView from './components/DeckView'
 
 const AppStatusBar = ({ backgroundColor, ...props }) => (
   <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -16,6 +18,8 @@ const AppStatusBar = ({ backgroundColor, ...props }) => (
 
 const Navigation = StackNavigator({
 Default: { screen: DecksListView },
+AddDeck: { screen: NewDeckView },
+   Deck: { path: 'deck/:deck',screen: DeckView},
 
 });
 

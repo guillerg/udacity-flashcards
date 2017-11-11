@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, Button, FlatList, StyleSheet, Platform } from 'react-native';
+import { TouchableOpacity, View, Button, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchDecks } from '../actions'
 import DecksListItem from './DecksListItem'
@@ -11,7 +11,7 @@ class DecksListView extends Component {
       headerTitle: 'Flash Cards',
       headerRight: (
         <Button
-          title="Add Deck"
+          title="New Deck"
           onPress={() => navigate('AddDeck')}
         />
       )

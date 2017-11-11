@@ -33,13 +33,16 @@ const setInitialData = () => {
   return initialData;
 };
 
-const formatDecks = (results) => {
-  return results === null
-    ? setInitialData()
-    : JSON.parse(results);
-};
 
 export const fetchDecks = () => {
   return AsyncStorage.getItem(DB_STORAGE_KEY)
-    .then(formatDecks);
+    .then((results) => {
+      return results === null
+        ? setInitialData()
+        : JSON.parse(results);
+    });
 };
+
+export const addDeck = (deck) => (
+  AsyncStorage.mergeItem(DB_STORAGE_KEY, JSON.stringify(deck))
+);

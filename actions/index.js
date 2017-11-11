@@ -12,3 +12,12 @@ const get_decks = decks => ({
 export const fetchDecks = () => dispatch => {
   api.fetchDecks().then(decks => dispatch(get_decks(decks)));
 };
+
+const add_deck = deck => ({
+  type: ADD_DECK,
+  deck
+});
+
+export const addDeck = deck => dispatch => {
+  api.addDeck(deck).then(() => dispatch(add_deck(deck)));
+};
