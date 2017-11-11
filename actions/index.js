@@ -21,3 +21,13 @@ const add_deck = deck => ({
 export const addDeck = deck => dispatch => {
   api.addDeck(deck).then(() => dispatch(add_deck(deck)));
 };
+
+const add_card = (deck, card) => ({
+  type: ADD_CARD,
+  deck,
+  card
+});
+
+export const addCard = (deck, card) => dispatch => {
+  api.addCard(deck, card).then(() => dispatch(add_card(deck, card)));
+};

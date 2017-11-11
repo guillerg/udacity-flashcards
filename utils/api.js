@@ -46,3 +46,16 @@ export const fetchDecks = () => {
 export const addDeck = (deck) => (
   AsyncStorage.mergeItem(DB_STORAGE_KEY, JSON.stringify(deck))
 );
+
+export const addCard = (deck, card) => (
+  AsyncStorage.getItem(DB_STORAGE_KEY, (err, result) => {
+    let currentDeck = JSON.parse(result)[deck];
+    let questions = currentDeck.questions;
+    questions[questions.length] = card;
+    currentDeck.questions = questions;
+    AsyncStorage.mergeItem(
+      DB_STORAGE_KEY,
+      JSON.stringify({[deck]: currentDeck})
+    );
+  })
+);

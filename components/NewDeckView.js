@@ -14,8 +14,7 @@ class NewDeckView extends Component {
   };
 
   onSubmit = () => {
-    const { title } = this.state;
-    const { decks } = this.props;
+
       const deck = {
         [this.state.title]: {
           title: this.state.title,
@@ -31,7 +30,7 @@ class NewDeckView extends Component {
               NavigationActions.navigate({ routeName: 'Default' }),
               NavigationActions.navigate({
                 routeName: 'Deck',
-                params: title
+                params: this.state.title
               })
             ]
           })
