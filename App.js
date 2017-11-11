@@ -21,8 +21,16 @@ const Navigation = StackNavigator({
        Default: { screen: DecksListView },
        AddDeck: { screen: NewDeckView },
           Deck: { path: 'deck/:deck',screen: DeckView},
-   NewQuestion: { path: 'new/:deck', screen: NewQuestionView }
-
+   NewQuestion: { path: 'new/:deck', screen: NewQuestionView },
+          Quiz: { path: 'quiz/:deck', screen: Quiz},
+},
+{
+    navigationOptions: {
+      headerTintColor: "#ffffff",
+      alignItem: 'center',
+      headerStyle: {backgroundColor: '#000000'}
+    }
+  }
 });
 
 export default class App extends React.Component {
