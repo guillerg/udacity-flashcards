@@ -14,9 +14,7 @@ class QuizView extends Component {
   };
 
   render(){
-    return(
 
-    )
   }
 }
 

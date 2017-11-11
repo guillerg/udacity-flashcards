@@ -10,6 +10,7 @@ import reducer from './reducers';
 import NewDeckView from './components/NewDeckView';
 import DeckView from './components/DeckView'
 import NewQuestionView from './components/NewQuestionView'
+import QuizView from './components/QuizView'
 
 const AppStatusBar = ({ backgroundColor, ...props }) => (
   <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -22,7 +23,7 @@ const Navigation = StackNavigator({
        AddDeck: { screen: NewDeckView },
           Deck: { path: 'deck/:deck',screen: DeckView},
    NewQuestion: { path: 'new/:deck', screen: NewQuestionView },
-          Quiz: { path: 'quiz/:deck', screen: Quiz},
+          Quiz: { path: 'quiz/:deck', screen: QuizView},
 },
 {
     navigationOptions: {
@@ -31,7 +32,7 @@ const Navigation = StackNavigator({
       headerStyle: {backgroundColor: '#000000'}
     }
   }
-});
+);
 
 export default class App extends React.Component {
 
