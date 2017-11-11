@@ -28,14 +28,14 @@ const setInitialData = () => {
     }
   };
 
-  AsyncStorage.setItem(DB_STORAGE_KEY, JSON.stringify(dummyData));
+  AsyncStorage.setItem(DB_STORAGE_KEY, JSON.stringify(initialData));
 
   return initialData;
 };
 
 const formatDecks = (results) => {
   return results === null
-    ? setDummyData()
+    ? setInitialData()
     : JSON.parse(results);
 };
 

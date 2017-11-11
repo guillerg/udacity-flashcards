@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Button,
-  FlatList,
-  StyleSheet,
-  Platform
-} from 'react-native';
+import { TouchableOpacity, View, Button, FlatList, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';
-
-
+import { fetchDecks } from '../actions'
+import DecksListItem from './DecksListItem'
 
 class DecksListView extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -26,14 +19,14 @@ class DecksListView extends Component {
   };
 
   componentDidMount = () => {
-
+    this.props.fetchDecks();
   };
 
   renderItem = ({ item }) => (
     <TouchableOpacity
       onPress={() => this.props.navigation.navigate('Deck', item.title)}
     >
-      <DecksListItem deck={item} />
+    <DecksListItem deck={item} />
     </TouchableOpacity>
   );
 
@@ -41,13 +34,22 @@ class DecksListView extends Component {
     return (
       <View>
         <FlatList
-
+          data={this.props.decks}
+          renderItem={this.renderItem}
+          keyExtractor={item => item.title}
         />
       </View>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  decks: Object.keys(state).map(title => state[title])
+});
+
+const mapDispatchToProps = {
+  fetchDecks
+};
 
 
-export default DecksListView;
+export default connect(mapStateToProps, mapDispatchToProps) (DecksListView);
