@@ -43,7 +43,24 @@ class QuizView extends Component {
       <View style={{ flex: 1 }}>
         {currentQuestion < questions.length ? (
           <View >
-
+            <Text>
+              {current Question+ 1}/{questions.length}
+            </Text>
+            <View>
+              <Text>{questions[current].question}</Text>
+            </View>
+            <View style={[{ justifyContent: 'flex-end' }]}>
+              {showAnswer && <Text>{questions[current].answer}</Text>}
+              {showAnswer ? (
+                <Button onPress={toggleCard} title='Hide Answer' />
+              ) : (
+                <Button onPress={toggleCard} title='Show Answer' />
+              )}
+            </View>
+            <View>
+              <Button onPress={correctAnswer} title='Right' />
+              <Button onPress={onWrong} title='Wrong' />
+            </View>
           </View>
 
         ) : (
