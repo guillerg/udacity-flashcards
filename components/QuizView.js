@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
 
 class QuizView extends Component {
@@ -37,29 +37,29 @@ class QuizView extends Component {
 
   render(){
     const { questions } = this.props;
-    const { currentQuestion, correctQuestion, showAnswer } = this.state;
+    const { currentQuestion, correctAnswers, showAnswer } = this.state;
 
     return(
       <View style={{ flex: 1 }}>
         {currentQuestion < questions.length ? (
           <View >
             <Text>
-              {current Question+ 1}/{questions.length}
+              {currentQuestion+ 1}/{questions.length}
             </Text>
             <View>
-              <Text>{questions[current].question}</Text>
+              <Text>{questions[currentQuestion].question}</Text>
             </View>
             <View style={[{ justifyContent: 'flex-end' }]}>
-              {showAnswer && <Text>{questions[current].answer}</Text>}
+              {showAnswer && <Text>{questions[currentQuestion].answer}</Text>}
               {showAnswer ? (
-                <Button onPress={toggleCard} title='Hide Answer' />
+                <Button onPress={this.toggleCard} title='Hide Answer' />
               ) : (
-                <Button onPress={toggleCard} title='Show Answer' />
+                <Button onPress={this.toggleCard} title='Show Answer' />
               )}
             </View>
             <View>
-              <Button onPress={correctAnswer} title='Right' />
-              <Button onPress={onWrong} title='Wrong' />
+              <Button onPress={correctAnswers} title='Right' />
+              <Button onPress={this.nextQuestion} title='Wrong' />
             </View>
           </View>
 
