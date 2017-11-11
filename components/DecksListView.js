@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, Button, FlatList } from 'react-native';
+import { TouchableOpacity, View, Button, FlatList, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchDecks } from '../actions'
-import DecksListItem from './DecksListItem'
 
 class DecksListView extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -26,7 +25,10 @@ class DecksListView extends Component {
     <TouchableOpacity
       onPress={() => this.props.navigation.navigate('Deck', item.title)}
     >
-    <DecksListItem deck={item} />
+      <View>
+        <Text> {item.title} </Text>
+        <Text> {item.questions.length} Cards </Text>
+      </View>
     </TouchableOpacity>
   );
 
