@@ -11,6 +11,7 @@ import NewDeckView from './components/NewDeckView';
 import DeckView from './components/DeckView'
 import NewQuestionView from './components/NewQuestionView'
 import QuizView from './components/QuizView'
+import {setLocalNotification} from './utils/Notification.js'
 
 const AppStatusBar = ({ backgroundColor, ...props }) => (
   <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -36,7 +37,9 @@ const Navigation = StackNavigator({
 
 export default class App extends React.Component {
 
-
+  componentDidMount(){
+      setLocalNotification()
+    }
 
   render() {
     return (
