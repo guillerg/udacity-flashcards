@@ -64,9 +64,20 @@ class QuizView extends Component {
           </View>
 
         ) : (
-          <View >
-
-          </View>
+          
+          <View>
+            <View>
+              <Text>
+                Correct answers: {correctAnswers}
+              </Text>
+              <Text>
+                Total questions: {questions.length}
+              </Text>
+            </View>
+            <View>
+              <Button onPress={()=>this.return()} title='Return to Deck' />
+            </View>
+        </View>
         )}
       </View>
 
