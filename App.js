@@ -11,7 +11,8 @@ import NewDeckView from './components/NewDeckView';
 import DeckView from './components/DeckView'
 import NewQuestionView from './components/NewQuestionView'
 import QuizView from './components/QuizView'
-import {setLocalNotification} from './utils/Notification.js'
+import {setLocalNotification} from './utils/Notification'
+import { accent2a, accent1 } from './utils/colors'
 
 const AppStatusBar = ({ backgroundColor, ...props }) => (
   <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -30,7 +31,7 @@ const Navigation = StackNavigator({
     navigationOptions: {
       headerTintColor: "#ffffff",
       alignItem: 'center',
-      headerStyle: {backgroundColor: '#000000'}
+      headerStyle: {backgroundColor: accent2a}
     }
   }
 );
@@ -45,7 +46,7 @@ export default class App extends React.Component {
     return (
        <Provider store={createStore(reducer, applyMiddleware(reduxThunk))}>
           <View style={{ flex: 1 }}>
-              <AppStatusBar  barStyle="light-content" />
+              <AppStatusBar  backgroundColor={accent1} barStyle="light-content" />
               <Navigation />
           </View>
         </Provider>
