@@ -22,7 +22,9 @@ class DeckView extends Component {
           <Text>{title}</Text>
           <Text>{questions.length} Cards</Text>
         </View>
+        {questions.length > 0 &&
         <Button title='Start quiz' onPress={() => navigate('Quiz', title)}/>
+      }
       </View>
     );
   }
