@@ -24,7 +24,7 @@ class DeckView extends Component {
         </View>
         {questions.length > 0 &&
         <Button title='Start quiz' onPress={() => navigate('Quiz', title)}/>
-      }
+        }
       </View>
     );
   }
