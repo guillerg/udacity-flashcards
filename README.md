@@ -21,3 +21,6 @@ yarn start
 
 - Press `i` to open iOS emulator.
 - Press `q` to display QR code. Then scan the code with your EXPO mobile from your device.
+
+
+Some code snippets and ideas inspired from Udacity's slack channels for this course
