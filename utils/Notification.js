@@ -8,8 +8,7 @@ export function clearLocalNotification () {
         .then(Notifications.cancelAllScheduledNotificationsAsync());
 }
 
-export function createNotification () {
-    return {
+const createNotification = () => ({
         title: 'Flashcards study',
         body: "Long time no see. We miss you!",
         ios: {
@@ -21,8 +20,7 @@ export function createNotification () {
             sticky: false,
             vibrate: true
         }
-    }
-}
+});
 
 export function setLocalNotification () {
     AsyncStorage.getItem(NOTIFICATION_KEY)

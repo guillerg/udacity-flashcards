@@ -17,8 +17,8 @@ class NewDeckView extends Component {
 
     if(this.state.title.length===0){
       Alert.alert('You forgot the title!')
-      return
     }
+    else{
 
       const deck = {
         [this.state.title]: {
@@ -41,6 +41,10 @@ class NewDeckView extends Component {
           })
         );
       }, 500);
+
+    }
+
+
   };
 
   render() {
@@ -61,8 +65,4 @@ const mapStateToProps = state => ({
   decks: state
 });
 
-const mapDispatchToProps = {
-  addDeck
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewDeckView);
+export default connect(mapStateToProps, {addDeck})(NewDeckView);
