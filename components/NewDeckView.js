@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { Button, Text, KeyboardAvoidingView, TextInput } from 'react-native';
+import { Alert, Button, Text, KeyboardAvoidingView, TextInput } from 'react-native';
 import { addDeck } from '../actions';
 
 class NewDeckView extends Component {
@@ -14,6 +14,11 @@ class NewDeckView extends Component {
   };
 
   onSubmit = () => {
+
+    if(this.state.title.length===0){
+      Alert.alert('You forgot the title!')
+      return
+    }
 
       const deck = {
         [this.state.title]: {

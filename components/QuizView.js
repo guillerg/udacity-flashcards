@@ -29,11 +29,19 @@ class QuizView extends Component {
 
   toggleCard = () => {
       this.setState(({ showAnswer }) => ({ showAnswer: !showAnswer }));
-    };
+  };
 
   return = () => {
       this.props.navigation.goBack();
-    }
+  }
+
+  reset = () => {
+      this.setState({
+        currentQuestion: 0,
+        correctAnswers: 0,
+        showAnswer: false
+      });
+  }
 
   render(){
     const { questions } = this.props;
@@ -64,7 +72,7 @@ class QuizView extends Component {
           </View>
 
         ) : (
-          
+
           <View>
             <View>
               <Text>
@@ -75,6 +83,7 @@ class QuizView extends Component {
               </Text>
             </View>
             <View>
+              <Button onPress={()=>this.reset()} title='Restart quiz' />
               <Button onPress={()=>this.return()} title='Return to Deck' />
             </View>
         </View>
